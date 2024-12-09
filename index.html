@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Synchronized Video-to-Audio Generation via Mel Quantization-Continuum Decomposition</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+  
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Synchronized Video-to-Audio Generation via Mel Quantization-Continuum Decomposition</h1>
+          <div class="is-size-5 publication-authors">
+            <span>Anonymous submission to CVPR 2025</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+
+          <p>
+            Video-to-audio generation is essential for synthesizing realistic audio tracks that synchronize effectively with silent videos.
+            Following the perspective of extracting essential signals from videos that can precisely control the mature text-to-audio generative diffusion models, this paper presents how to balance the representation of mel-spectrograms in terms of completeness and complexity through a new approach called Mel Quantization-Continuum Decomposition (Mel-QCD).
+            We decompose the mel-spectrogram into three distinct types of signals, employing quantization or continuity to them, we can effectively predict them from video by a devised video-to-all (V2X) predictor.
+            Then, the predicted signals are recomposed and fed into a ControlNet, along with a textual inversion design, to control the audio generation process.
+            Our proposed Mel-QCD method demonstrates state-of-the-art performance across eight metrics, evaluating dimensions such as quality, synchronization, and semantic consistency.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+
+    <!-- Animation. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Comparison on AVSync-15</h2>
+        
+        <h3 class="title is-4">Ground Truth</h3>
+        <div class="columns is-centered">
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/14_gt.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/51_gt.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/68_gt.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/74_gt.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <h3 class="title is-4">Foley Crafter</h3>
+        <div class="columns is-centered">
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/14_foley.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/51_foley.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/68_foley.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/74_foley.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        
+        <h3 class="title is-4">VTA-LDM</h3>
+        <div class="columns is-centered">
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/14_vta_op.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/51_vta_op.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/68_vta_op.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/74_vta_op.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <h3 class="title is-4">Ours Results</h3>
+        <div class="columns is-centered">
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/14_ours_op.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/51_ours_op.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/68_ours_op.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/74_ours_op.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        
+
+
+        <h2 class="title is-3">Comparison on VGGSound</h2>
+        
+        <h3 class="title is-4">Ground Truth</h3>
+        <div class="columns is-centered">
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/184825_0_gt.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/185302_0_gt.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/189007_0_gt.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/191517_0_gt.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <h3 class="title is-4">Foley Crafter</h3>
+        <div class="columns is-centered">
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/184825_0_foleycrafter.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/185302_0_foleycrafter.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/189007_0_foleycrafter.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/191517_0_foleycrafter.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        
+        <h3 class="title is-4">VTA-LDM</h3>
+        <div class="columns is-centered">
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/184825_0_vtaldm.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/185302_0_vtaldm.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/189007_0_vtaldm.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/191517_0_vtaldm.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <h3 class="title is-4">Ours Results</h3>
+        <div class="columns is-centered">
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/184825_0_ours.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/185302_0_ours.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/189007_0_ours.mp4"
+                    type="video/mp4">
+          </video>
+          <video id="matting-video" controls playsinline width="25%">
+            <source src="./static/videos/191517_0_ours.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+
+
+  </div>
+</section>
+
+
+
+
+<!-- <footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer> -->
+
+</body>
+</html>
